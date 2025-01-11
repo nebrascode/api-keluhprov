@@ -31,6 +31,7 @@ type ChatRepositoryInterface interface {
 	GetAllRooms() ([]Room, error)
 	CreateRoom(name string) (*Room, error)
 	GetMessagesByRoomID(roomID int) ([]Message, error)
+	GetRoomByID(ID int) (*Room, error)
 }
 
 // ChatUseCaseInterface defines the business logic methods for chat interactions
@@ -43,4 +44,5 @@ type ChatUseCaseInterface interface {
 	GetAllRooms() ([]Room, error)
 	CreateRoom(name string) (*Room, error)
 	GetMessagesByRoomID(roomID int) ([]Message, error)
+	GetRoomByID(ID int) (*Room, error)
 }

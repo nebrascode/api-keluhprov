@@ -56,3 +56,8 @@ func (uc *chatUseCase) GetAllChatsByUser(userID int) ([]entities.Message, error)
 	}
 	return messages, nil
 }
+
+// GetRoomByID retrieves a room by its ID
+func (uc *chatUseCase) GetRoomByID(ID int) (*entities.Room, error) {
+	return uc.chatRepo.GetRoomByID(ID)
+}

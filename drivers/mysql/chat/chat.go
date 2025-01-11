@@ -68,3 +68,13 @@ func (r *chatRepository) GetMessagesByRoomID(roomID int) ([]entities.Message, er
 func NewChatRepository(db *gorm.DB) entities.ChatRepositoryInterface {
 	return &chatRepository{db: db}
 }
+
+// GetRoomByID retrieves a room by its ID
+func (r *chatRepository) GetRoomByID(ID int) (*entities.Room, error) {
+	var room entities.Room
+	err := r.db.Preload("Messages").First(&room, ID).Error
+	if err != nil {
+		return nil, err
+	}
+	return &room, nil
+}

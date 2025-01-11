@@ -68,6 +68,7 @@ func Migration(db *gorm.DB) {
 	db.AutoMigrate(entities.Room{})
 	db.AutoMigrate(entities.UnggahBukti{})
 	db.AutoMigrate(entities.Schedule{})
+	db.AutoMigrate(&entities.Notification{})
 }
 
 func Seeder(db *gorm.DB, regencyAPI entities.RegencyIndonesiaAreaAPIInterface) {
